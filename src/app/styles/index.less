@@ -1,0 +1,21 @@
+@import 'reset.less';
+@import '~includes.less';
+@import './themes';
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    background-color: var(--body-bg-color);
+    color: var(--font-color);
+    transition:
+        background-color 0.2s,
+        color 0.2s;
+}
+
+#root {
+    max-width: 100vw;
+    max-width: 100dvw;
+    overflow: hidden;
+}
+
+@import './layouts/auth-layout.less';
+@import './layouts/not-auth-layout.less';

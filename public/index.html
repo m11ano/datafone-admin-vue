@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Панель управления</title>
+    </head>
+    <body>
+        <noscript><b>Enable JavaScript to run this app.</b></noscript>
+        <div id="root"></div>
+        <% for (var js in htmlWebpackPlugin.files.js) { %>
+        <script src="/admin/root/<%= htmlWebpackPlugin.files.js[js] %>"></script>
+        <% } %>
+    </body>
+</html>
