@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { inject } from 'vue';
 
-import { type IRouteData } from '@/shared/types/router/routeTypes';
+import { type IRouteData } from '@/shared/types/routerProvider/routerProviderTypes';
 
 const routeData = inject<IRouteData>('routeData');
 </script>

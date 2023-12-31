@@ -1,23 +1,16 @@
 <script setup lang="ts">
-import { watch, onMounted, inject } from 'vue';
-import { type IRouteData } from '@/shared/types/router/routeTypes';
+import { watch, inject } from 'vue';
+import { type IRouteData } from '@/shared/types/routerProvider/routerProviderTypes';
 
-const routeData = inject<IRouteData>('routeData');
-
-const updateTitle = () => {
-    const mainTitle = 'Панель управления';
-    document.title = `${routeData && routeData.meta.title ? `${routeData.meta.title} / ` : ''} ${mainTitle}`;
-};
-
-onMounted(() => {
-    updateTitle();
-});
+const routeData = inject<IRouteData>('routeData')!;
 
 watch(
-    () => routeData?.meta,
+    routeData,
     () => {
-        updateTitle();
+        const mainTitle = 'Панель управления';
+        document.title = `${routeData.meta.title ? `${routeData.meta.title} / ` : ''} ${mainTitle}`;
     },
+    { immediate: true },
 );
 </script>
 

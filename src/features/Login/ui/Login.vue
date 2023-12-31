@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { Alert, Button, Card, Form, Input } from 'ant-design-vue';
 import classNames from 'classNames';
-import { ref, reactive, watch } from 'vue';
+import { ref, reactive, watch, inject } from 'vue';
 import { LockOutlined, UserOutlined } from '@ant-design/icons-vue';
-import { useAuthProvider } from '@/shared/providers/authProvider';
-import { RequestError } from '@/shared/libs/errors/RequestError';
+import { RequestError } from '@/shared/lib/errors/RequestError';
+import { sessionUserProviderInjectKey } from '@/injectionKeys';
 
 interface ILoginState {
     email: string;
@@ -15,7 +15,7 @@ defineProps<{
     className?: string;
 }>();
 
-const { actionLogin } = useAuthProvider();
+const { actionLogin } = inject(sessionUserProviderInjectKey)!;
 
 const isLoading = ref(false);
 const errors = ref<string[]>([]);

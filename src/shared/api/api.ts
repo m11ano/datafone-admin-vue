@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { RequestError } from '@/shared/libs/errors/RequestError';
+import { RequestError } from '@/shared/lib/errors/RequestError';
 
 export const $api = axios.create({
     baseURL: __API__,

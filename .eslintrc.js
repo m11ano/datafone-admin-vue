@@ -34,5 +34,7 @@ module.exports = {
         ],
         'vue/multi-word-component-names': 'off',
         '@typescript-eslint/no-explicit-any': 'warn',
+        'default-case': 'off',
+        'vuejs-accessibility/click-events-have-key-events': 'off',
     },
 };

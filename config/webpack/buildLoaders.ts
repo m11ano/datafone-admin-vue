@@ -39,11 +39,11 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     };
 
     return [
-        vueLoader,
         fileLoader,
         // codeBabelLoader,
         // tsxCodeBabelLoader,
         typescriptLoader,
         cssLoader,
+        vueLoader,
     ];
 }
