@@ -1,14 +1,18 @@
-import { RouteRecordRaw } from 'vue-router';
 import { LoginPage } from '@/pages/LoginPage';
 import { RecoverPasswordPage } from '@/pages/RecoverPasswordPage';
+import { INotAuthRouteRecordRaw } from '../model/types/route';
 
-export const notAuthRoutes: Array<RouteRecordRaw> = [
+export const notAuthRoutes: Array<INotAuthRouteRecordRaw> = [
     {
         path: '/',
         name: 'loginPage',
         component: LoginPage,
         meta: {
-            title: 'Авторизация',
+            breadcrumb: [
+                {
+                    title: 'Авторизация',
+                },
+            ],
         },
     },
     {
@@ -16,7 +20,11 @@ export const notAuthRoutes: Array<RouteRecordRaw> = [
         name: 'recoverPasswordPage',
         component: RecoverPasswordPage,
         meta: {
-            title: 'Восстановление пароля',
+            breadcrumb: [
+                {
+                    title: 'Восстановление пароля',
+                },
+            ],
         },
     },
     {

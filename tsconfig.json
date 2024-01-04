@@ -10,8 +10,8 @@
         "moduleResolution": "node",
         "baseUrl": ".",
         "paths": {
-            "@module/*": ["./src/modules/client/*"],
-            "@core/*": ["./src/modules/core/*"],
+            "@side_module/*": ["./src/modules/side/*"],
+            "@core_module/*": ["./src/modules/core/*"],
             "@/*": ["./src/*"]
         },
         "isolatedModules": true,

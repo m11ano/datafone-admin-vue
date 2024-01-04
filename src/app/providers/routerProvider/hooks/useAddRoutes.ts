@@ -1,6 +1,7 @@
 import { RouteRecordRaw, useRouter } from 'vue-router';
-import { authRoutes } from '@/shared/config/providers/router/authRoutes';
-import { notAuthRoutes } from '@/shared/config/providers/router/notAuthRoutes';
+import { notAuthRoutes } from '../config/notAuthRoutes';
+import { authRoutes } from '../config/authRoutes';
+import { buildModulesRoutes } from '../lib/buildModulesRoutes';
 
 let removeFuncs: (() => void)[] = [];
 
@@ -30,7 +31,21 @@ export const useAddRoutes = () => {
     };
 
     const addRoutesForAuth = async (toFirstRoute: boolean = true) => {
-        await addRoutes(authRoutes, toFirstRoute);
+        await addRoutes(
+            [
+                ...authRoutes,
+                ...buildModulesRoutes(),
+                {
+                    path: '/:pathMatch(.*)*',
+                    name: '404',
+                    redirect: '/',
+                    meta: {
+                        type: 'page',
+                    },
+                },
+            ],
+            toFirstRoute,
+        );
     };
 
     return { addRoutesForNotAuth, addRoutesForAuth };

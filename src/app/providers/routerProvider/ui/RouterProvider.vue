@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import { watch, onBeforeMount, onUnmounted, VNode, RendererNode, RendererElement, inject } from 'vue';
-import { useRouter, RouteLocationNormalizedLoaded } from 'vue-router';
+import { useRouter } from 'vue-router';
+import { LayoutProvider } from '@/app/providers/layoutProvider';
 import { useAddRoutes } from '../hooks/useAddRoutes';
 import { useRouterStore } from '../model/store/routerStore';
-import RouteProvider from './RouteProvider.vue';
 import FullPageLoader from '@/shared/ui/FullPageLoader/FullPageLoader.vue';
 import { sessionUserProviderInjectKey } from '@/injectionKeys';
 
 type RouterViewSlot = {
     Component: VNode<RendererNode, RendererElement, { [key: string]: any }>;
-    route: RouteLocationNormalizedLoaded;
 };
 
 const routerStore = useRouterStore();
@@ -63,13 +62,10 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <RouterView v-slot="{ Component, route }: RouterViewSlot">
+    <RouterView v-slot="{ Component }: RouterViewSlot">
         <FullPageLoader v-if="routerStore.showLoader" />
-        <RouteProvider
-            v-else
-            :meta="route.meta"
-        >
+        <LayoutProvider v-else>
             <component :is="Component" />
-        </RouteProvider>
+        </LayoutProvider>
     </RouterView>
 </template>

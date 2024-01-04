@@ -8,13 +8,15 @@ defineProps<{
 }>();
 
 const route = useRoute();
+
+console.log(route);
 </script>
 
 <template>
-    {{ route.meta }}
+    {{ route }}
     <div :class="classNames($style.mainPage, className)">
-        <Title :level="4">Добро пожаловать в админку!</Title>
-        <RouterLink to="/gg">To test</RouterLink>
+        <Title :level="4">Тест страница</Title>
+        <RouterLink to="/gg">GG</RouterLink>
     </div>
 </template>
 

@@ -6,6 +6,7 @@ import { actionInitAuthRequest } from '../model/actions/actionInitAuthRequest';
 import { actionLogin } from '../model/actions/actionLogin';
 import { actionLogout } from '../model/actions/actionLogout';
 import { sessionUserProviderInjectKey } from '@/injectionKeys';
+import FullPageLoader from '@/shared/ui/FullPageLoader/FullPageLoader.vue';
 
 const store = useSessionUserStore();
 
