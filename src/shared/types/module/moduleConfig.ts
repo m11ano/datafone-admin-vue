@@ -1,18 +1,15 @@
 import { RouteComponent, RouteRecordRaw } from 'vue-router';
 
-interface RouteBreadcrumb {
-    title: string;
-    url?: string;
-}
+type IRouteTitleItem = string | (() => string);
 
-type ModuleRoute = RouteRecordRaw & {
+type TModuleRoute = RouteRecordRaw & {
     meta?: {
-        breadcrumb?: RouteBreadcrumb;
+        title?: IRouteTitleItem;
     };
 };
 
-type ModuleRouteItem = ModuleRoute & {
-    kids?: ModuleRouteItem[];
+export type TModuleRouteItem = TModuleRoute & {
+    kids?: TModuleRouteItem[];
 };
 
 type Lazy<T> = () => Promise<T>;
@@ -21,6 +18,5 @@ export interface ModuleConfig {
     name: string;
     title: string;
     component: RouteComponent | Lazy<RouteComponent>;
-    routes?: ModuleRouteItem[];
-    breadcrumb?: RouteBreadcrumb | (() => RouteBreadcrumb);
+    routes?: TModuleRouteItem[];
 }

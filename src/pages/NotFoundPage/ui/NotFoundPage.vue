@@ -7,14 +7,11 @@ defineProps<{
 </script>
 
 <template>
-    <div :class="classNames($style.myProfilePage, className)">
-        Мой профиль
-        <RouterLink to="/myProfile/access">to access</RouterLink>
-    </div>
+    <div :class="classNames($style.notFoundPage, className)">Страница не найдена!</div>
 </template>
 
 <style lang="less" module>
 // @import '~includes.less';
-.myProfilePage {
+.notFoundPage {
 }
 </style>

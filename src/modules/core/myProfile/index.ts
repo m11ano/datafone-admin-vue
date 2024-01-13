@@ -10,6 +10,25 @@ const moduleConfig: ModuleConfig = {
         {
             path: 'access',
             component: MyProfileAccessPage,
+            meta: {
+                title: 'Доступ к профилю',
+            },
+            kids: [
+                {
+                    path: '123',
+                    component: MyProfileAccessPage,
+                    meta: {
+                        title: 'Принудиловка',
+                    },
+                },
+                {
+                    path: ':id',
+                    component: MyProfileAccessPage,
+                    meta: {
+                        title: 'Тест хуйни',
+                    },
+                },
+            ],
         },
     ],
 };

@@ -27,9 +27,4 @@ export const notAuthRoutes: Array<INotAuthRouteRecordRaw> = [
             ],
         },
     },
-    {
-        path: '/:pathMatch(.*)*',
-        name: '404',
-        redirect: '/',
-    },
 ];

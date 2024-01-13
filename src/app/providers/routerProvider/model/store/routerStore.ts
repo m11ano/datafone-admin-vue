@@ -1,9 +1,19 @@
 import { defineStore } from 'pinia';
+import { RouteData } from '../types/route';
+
+interface RouterStore {
+    showLoader: boolean;
+    isProcessFuncsInited: boolean;
+    routeData: RouteData;
+}
 
 export const useRouterStore = defineStore('router', {
-    state: () => ({
+    state: (): RouterStore => ({
         showLoader: true,
         isProcessFuncsInited: false,
+        routeData: {
+            type: 'page',
+        },
     }),
     actions: {
         setShowLoader(value: boolean) {
@@ -11,6 +21,9 @@ export const useRouterStore = defineStore('router', {
         },
         setProcessFuncsInited() {
             this.isProcessFuncsInited = true;
+        },
+        setRouteData(routeData: RouteData) {
+            this.routeData = routeData;
         },
     },
 });

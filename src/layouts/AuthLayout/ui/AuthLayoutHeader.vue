@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import classNames from 'classNames';
-import { inject, ref, watch } from 'vue';
+import { ref, watch } from 'vue';
 import { Avatar, Drawer, Dropdown, Menu, MenuItem, Space, Switch } from 'ant-design-vue';
 import { UserOutlined, LogoutOutlined, MenuOutlined } from '@ant-design/icons-vue';
 import SunPng from '@/shared/assets/icons/files/icon-sun-40x40.png';
 import MoonPng from '@/shared/assets/icons/files/icon-moon-40x40.png';
 import { useDocWidth } from '@/shared/lib/hooks/useDocWidth';
-import { sessionUserProviderInjectKey, themeProviderInjectKey } from '@/injectionKeys';
+import { useThemeProvider } from '@/shared/lib/injectHooks/useThemeProvider/useThemeProvider';
+import { useSessionUserProvider } from '@/shared/lib/injectHooks/useSessionUserProvider/useSessionUserProvider';
 
 defineProps<{
     className?: string;
@@ -15,8 +16,9 @@ defineProps<{
 const {
     actionLogout,
     data: { sessionUserData },
-} = inject(sessionUserProviderInjectKey)!;
-const { theme, setTheme, enumTheme } = inject(themeProviderInjectKey)!;
+} = useSessionUserProvider();
+
+const { theme, setTheme, enumTheme } = useThemeProvider();
 
 const themeSwitchValue = ref<boolean>(theme.value !== enumTheme.DARK);
 
@@ -116,3 +118,4 @@ const menuDrawerIsOpened = ref(false);
         </div>
     </header>
 </template>
+@/shared/lib/hooks/useThemeProvider/useThemeProvider@/shared/lib/hooks/useSessionUserProvider/useSessionUserProvider
