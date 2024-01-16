@@ -54,8 +54,7 @@
         "lint:ts": "npx eslint \"**/*.{ts,tsx}\"",
         "lint:ts:fix": "npx eslint \"**/*.{ts,tsx}\" --fix",
         "lint:less": "npx stylelint \"**/*.less\"",
-        "lint:less:fix": "npx stylelint \"**/*.less\" --fix",
-        "postinstall": "node ./scripts/clear-cache.js"
+        "lint:less:fix": "npx stylelint \"**/*.less\" --fix"
     },
     "keywords": [],
     "author": "",
